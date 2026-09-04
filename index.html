@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celia — Cuidado Inteligente</title>
+  <meta name="description"
+    content="Celia conecta familias con sus adultos mayores. Monitoreo de signos vitales, servicios y videollamadas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="bg-aura"></div>
+
+  <div class="app-container">
+    <div class="phone">
+
+      <!-- ── BARRA DE ESTADO ── -->
+      <div class="status-bar">
+        <span class="time" id="status-time">10:24</span>
+        <div class="status-icons">
+          <svg viewBox="0 0 24 24">
+            <rect x="2" y="14" width="3" height="6" rx="1" />
+            <rect x="7" y="10" width="3" height="10" rx="1" />
+            <rect x="12" y="6" width="3" height="14" rx="1" />
+            <rect x="17" y="2" width="3" height="18" rx="1" opacity="0.3" />
+          </svg>
+          <svg viewBox="0 0 24 24">
+            <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+            <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+            <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+            <circle cx="12" cy="20" r="1" />
+          </svg>
+          <svg viewBox="0 0 28 14">
+            <rect x="1" y="1" width="22" height="12" rx="3" stroke="white" stroke-width="1.5" fill="none" />
+            <rect x="23" y="4" width="3" height="6" rx="1" fill="white" opacity="0.5" />
+            <rect x="2.5" y="2.5" width="16" height="9" rx="2" fill="white" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="app-body">
+
+        <!-- ════════════════════════════════
+           PANTALLA 1: INICIO
+      ════════════════════════════════ -->
+        <section id="screen-home" class="screen active">
+
+          <div class="app-header">
+            <div class="header-left">
+              <div class="greeting">Buenos días</div>
+              <div class="name">María García</div>
+            </div>
+            <div class="header-right">
+              <button class="icon-btn notif-btn" id="notif-btn"
+                onclick="showToast('notif','2 alertas nuevas','Signos vitales actualizados')">
+                <svg viewBox="0 0 24 24">
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg>
+                <div class="notif-dot"></div>
+              </button>
+              <div class="avatar-sm">M</div>
+            </div>
+          </div>
+
+          <!-- Tarjeta Rosa -->
+          <div class="elder-card">
+            <div class="elder-card-top">
+              <div class="elder-avatar">
+                <img src="rosa.jpg" alt="Rosa García"
+                  style="width:100%;height:100%;object-fit:cover;border-radius:13px;">
+                <div class="elder-status-dot"></div>
+              </div>
+              <div class="elder-info">
+                <div class="elder-name">Rosa García</div>
+                <div class="elder-sub">CDMX · Celia conectada</div>
+              </div>
+              <div class="elder-badge">Estable</div>
+            </div>
+            <div class="elder-quick-vitals">
+              <div class="qv-item">
+                <div class="qv-icon qv-heart">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="13" height="13">
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                </div>
+                <div class="qv-value vital-hr">72</div>
+                <div class="qv-label">BPM</div>
+              </div>
+              <div class="qv-item">
+                <div class="qv-icon qv-bp">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="13" height="13">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                  </svg>
+                </div>
+                <div class="qv-value vital-bp" style="font-size:10.5px;line-height:1.2">118/76</div>
+                <div class="qv-label">mmHg</div>
+              </div>
+              <div class="qv-item">
+                <div class="qv-icon qv-sugar">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="13" height="13">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                  </svg>
+                </div>
+                <div class="qv-value vital-sugar">95</div>
+                <div class="qv-label">mg/dL</div>
+              </div>
+              <div class="qv-item">
+                <div class="qv-icon qv-o2">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="13" height="13">
+                    <path
+                      d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 0 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
+                  </svg>
+                </div>
+                <div class="qv-value vital-o2">97</div>
+                <div class="qv-label">SpO₂</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Acciones Rápidas -->
+          <div class="section">
+            <div class="section-title">Acciones Rápidas</div>
+            <div class="quick-actions">
+              <button class="qa-btn qa-didi" onclick="openModal('didi')">
+                <div class="qa-icon qa-icon-img">
+                  <img src="didi.jpg" alt="DiDi" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+                </div>
+                <span class="qa-label">Pedir DiDi</span>
+              </button>
+              <button class="qa-btn qa-super" onclick="openModal('super')">
+                <div class="qa-icon qa-icon-img">
+                  <img src="super.jpg" alt="Supermercado"
+                    style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+                </div>
+                <span class="qa-label">Supermercado</span>
+              </button>
+              <button class="qa-btn qa-call" onclick="switchScreen('screen-video')">
+                <div class="qa-icon qa-icon-img">
+                  <img src="video.jpg" alt="Videollamada"
+                    style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+                </div>
+                <span class="qa-label">Videollamada</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Alertas -->
+          <div class="section">
+            <div class="section-title">Alertas de Hoy</div>
+            <div class="alert-item">
+              <div class="alert-icon alert-green">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                  width="15" height="15">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <div class="alert-text">
+                <div class="alert-title">Signos vitales en rango normal</div>
+                <div class="alert-time">Última lectura · hace 3 min</div>
+              </div>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon alert-info">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                  width="15" height="15">
+                  <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7z" />
+                  <line x1="8.5" y1="8.5" x2="15.5" y2="15.5" />
+                </svg>
+              </div>
+              <div class="alert-text">
+                <div class="alert-title">Recordatorio de medicamentos enviado</div>
+                <div class="alert-time">Hoy · 8:00 AM</div>
+              </div>
+            </div>
+            <div class="alert-item">
+              <div class="alert-icon alert-amber">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                  width="15" height="15">
+                  <rect x="1" y="10" width="22" height="8" rx="2" />
+                  <path d="M5 10l2-5h10l2 5" />
+                  <circle cx="7.5" cy="18" r="1.5" />
+                  <circle cx="16.5" cy="18" r="1.5" />
+                </svg>
+              </div>
+              <div class="alert-text">
+                <div class="alert-title">DiDi solicitado · Cita Dr. Herrera</div>
+                <div class="alert-time">Hace 2 horas · completado</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actividad -->
+          <div class="section">
+            <div class="section-title">Actividad Reciente</div>
+            <div class="card">
+              <div class="activity-row">
+                <div class="activity-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="15" height="15">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                    <line x1="12" y1="19" x2="12" y2="23" />
+                    <line x1="8" y1="23" x2="16" y2="23" />
+                  </svg>
+                </div>
+                <div class="activity-info">
+                  <div class="a-title">Rosa habló con Celia</div>
+                  <div class="a-sub">"Pon música de los 60's"</div>
+                </div>
+                <div class="activity-time">09:15</div>
+              </div>
+              <div class="activity-row">
+                <div class="activity-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="15" height="15">
+                    <circle cx="9" cy="21" r="1" />
+                    <circle cx="20" cy="21" r="1" />
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                  </svg>
+                </div>
+                <div class="activity-info">
+                  <div class="a-title">Pedido de súper entregado</div>
+                  <div class="a-sub">Walmart · 8 artículos</div>
+                </div>
+                <div class="activity-time">08:40</div>
+              </div>
+              <div class="activity-row">
+                <div class="activity-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="15" height="15">
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                </div>
+                <div class="activity-info">
+                  <div class="a-title">Lectura de signos vitales</div>
+                  <div class="a-sub">Todos en parámetros normales</div>
+                </div>
+                <div class="activity-time">08:00</div>
+              </div>
+              <div class="activity-row">
+                <div class="activity-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="15" height="15">
+                    <polygon points="23 7 16 12 23 17 23 7" />
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                  </svg>
+                </div>
+                <div class="activity-info">
+                  <div class="a-title">Videollamada con familia</div>
+                  <div class="a-sub">Duración: 18 min</div>
+                </div>
+                <div class="activity-time">Ayer</div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ════════════════════════════════
+           PANTALLA 2: SIGNOS VITALES
+      ════════════════════════════════ -->
+        <section id="screen-vitals" class="screen">
+
+          <div class="vitals-header">
+            <div class="vh-title">Signos Vitales</div>
+            <div class="live-badge">
+              <div class="live-dot"></div>EN VIVO
+            </div>
+          </div>
+
+          <div class="ekg-strip">
+            <div class="ekg-label">ECG — Ritmo Cardíaco en Tiempo Real</div>
+            <svg class="ekg-svg" viewBox="0 0 350 60" preserveAspectRatio="none" id="ekg-svg">
+              <polyline class="ekg-glow" id="ekg-glow-line"
+                points="0,30 25,30 35,30 40,5 45,55 50,30 60,30 85,30 95,30 100,8 105,52 110,30 120,30 145,30 155,30 160,10 165,50 170,30 180,30 205,30 215,30 220,6 225,54 230,30 240,30 265,30 275,30 280,8 285,52 290,30 300,30 325,30 335,30 340,10 345,50 350,30" />
+              <polyline class="ekg-path" id="ekg-line"
+                points="0,30 25,30 35,30 40,5 45,55 50,30 60,30 85,30 95,30 100,8 105,52 110,30 120,30 145,30 155,30 160,10 165,50 170,30 180,30 205,30 215,30 220,6 225,54 230,30 240,30 265,30 275,30 280,8 285,52 290,30 300,30 325,30 335,30 340,10 345,50 350,30" />
+            </svg>
+          </div>
+
+          <div class="vitals-grid">
+
+            <div class="vital-card vc-heart" onclick="showVitalDetail('heart')">
+              <div class="vc-top">
+                <div class="vc-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="16" height="16">
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                </div>
+                <div class="vc-status status-normal">Normal</div>
+              </div>
+              <div class="vc-value vital-hr">72</div>
+              <div class="vc-unit">BPM</div>
+              <div class="vc-label">Frecuencia Cardíaca</div>
+              <div class="sparkline"><svg viewBox="0 0 120 30" preserveAspectRatio="none">
+                  <polyline class="sparkline-path" stroke="#F43F5E"
+                    points="0,20 10,18 20,15 30,17 40,12 50,14 60,10 70,13 80,11 90,15 100,12 110,14 120,10" />
+                </svg></div>
+            </div>
+
+            <div class="vital-card vc-bp" onclick="showVitalDetail('bp')">
+              <div class="vc-top">
+                <div class="vc-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="16" height="16">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                  </svg>
+                </div>
+                <div class="vc-status status-normal">Normal</div>
+              </div>
+              <div class="vc-value vital-bp" style="font-size:20px">118/76</div>
+              <div class="vc-unit">mmHg</div>
+              <div class="vc-label">Presión Arterial</div>
+              <div class="sparkline"><svg viewBox="0 0 120 30" preserveAspectRatio="none">
+                  <polyline class="sparkline-path" stroke="#6366F1"
+                    points="0,15 10,13 20,16 30,14 40,17 50,15 60,13 70,16 80,14 90,15 100,13 110,15 120,14" />
+                </svg></div>
+            </div>
+
+            <div class="vital-card vc-sugar" onclick="showVitalDetail('sugar')">
+              <div class="vc-top">
+                <div class="vc-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="16" height="16">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                  </svg>
+                </div>
+                <div class="vc-status status-normal">Normal</div>
+              </div>
+              <div class="vc-value vital-sugar">95</div>
+              <div class="vc-unit">mg/dL</div>
+              <div class="vc-label">Glucosa en Sangre</div>
+              <div class="sparkline"><svg viewBox="0 0 120 30" preserveAspectRatio="none">
+                  <polyline class="sparkline-path" stroke="#F59E0B"
+                    points="0,22 10,18 20,20 30,16 40,19 50,17 60,21 70,18 80,16 90,19 100,17 110,20 120,16" />
+                </svg></div>
+            </div>
+
+            <div class="vital-card vc-o2" onclick="showVitalDetail('o2')">
+              <div class="vc-top">
+                <div class="vc-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="16" height="16">
+                    <path
+                      d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 0 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
+                  </svg>
+                </div>
+                <div class="vc-status status-normal">Normal</div>
+              </div>
+              <div class="vc-value vital-o2">97</div>
+              <div class="vc-unit">SpO₂ %</div>
+              <div class="vc-label">Saturación de Oxígeno</div>
+              <div class="sparkline"><svg viewBox="0 0 120 30" preserveAspectRatio="none">
+                  <polyline class="sparkline-path" stroke="#3B82F6"
+                    points="0,8 10,7 20,8 30,7 40,6 50,8 60,7 70,8 80,6 90,7 100,8 110,7 120,6" />
+                </svg></div>
+            </div>
+
+            <div class="vital-card vc-temp" onclick="showVitalDetail('temp')">
+              <div class="vc-top">
+                <div class="vc-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="16" height="16">
+                    <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" />
+                  </svg>
+                </div>
+                <div class="vc-status status-normal">Normal</div>
+              </div>
+              <div class="vc-value">36.5</div>
+              <div class="vc-unit">°C</div>
+              <div class="vc-label">Temperatura</div>
+              <div class="sparkline"><svg viewBox="0 0 120 30" preserveAspectRatio="none">
+                  <polyline class="sparkline-path" stroke="#FB923C"
+                    points="0,15 10,14 20,15 30,14 40,16 50,15 60,14 70,15 80,16 90,15 100,14 110,15 120,15" />
+                </svg></div>
+            </div>
+
+            <div class="vital-card vc-sleep" onclick="showVitalDetail('sleep')">
+              <div class="vc-top">
+                <div class="vc-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="16" height="16">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  </svg>
+                </div>
+                <div class="vc-status status-alert">Bajo</div>
+              </div>
+              <div class="vc-value">6.2</div>
+              <div class="vc-unit">horas</div>
+              <div class="vc-label">Calidad del Sueño</div>
+              <div class="sparkline"><svg viewBox="0 0 120 30" preserveAspectRatio="none">
+                  <polyline class="sparkline-path" stroke="#A855F7"
+                    points="0,10 10,8 20,12 30,15 40,10 50,18 60,22 70,16 80,20 90,14 100,18 110,22 120,20" />
+                </svg></div>
+            </div>
+
+          </div>
+
+          <div class="section">
+            <div class="card device-status-row">
+              <div class="device-status-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" width="16" height="16">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                </svg>
+              </div>
+              <div>
+                <div class="device-status-title">Dispositivo Celia conectado</div>
+                <div class="device-status-sub">Última sincronización: hace 2 min · Batería 86%</div>
+              </div>
+              <div class="status-indicator-dot"></div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ════════════════════════════════
+           PANTALLA 3: SERVICIOS
+      ════════════════════════════════ -->
+        <section id="screen-services" class="screen">
+
+          <div class="services-header">
+            <h2>Servicios</h2>
+            <p>Solicita lo que Rosa necesite</p>
+          </div>
+
+          <div class="service-tabs">
+            <button class="stab active" onclick="filterServices('all', this)">Todos</button>
+            <button class="stab" onclick="filterServices('transport', this)">Transporte</button>
+            <button class="stab" onclick="filterServices('delivery', this)">Domicilio</button>
+            <button class="stab" onclick="filterServices('care', this)">Cuidado</button>
+          </div>
+
+          <!-- DiDi -->
+          <div class="service-card sc-didi" data-category="transport" onclick="openModal('didi')">
+            <div class="sc-header">
+              <div class="sc-logo sc-logo-img">
+                <img src="didi.jpg" alt="DiDi" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+              </div>
+              <div class="sc-info">
+                <div class="sc-name">DiDi</div>
+                <div class="sc-desc">Traslados seguros para Rosa</div>
+              </div>
+              <div class="sc-available">Disponible</div>
+            </div>
+            <div class="sc-footer">
+              <div class="sc-eta">Tiempo estimado <strong>~8 min</strong></div>
+              <button class="btn-orange" onclick="event.stopPropagation();openModal('didi')">Solicitar</button>
+            </div>
+          </div>
+
+          <!-- Supermercado -->
+          <div class="service-card sc-super" data-category="delivery" onclick="openModal('super')">
+            <div class="sc-header">
+              <div class="sc-logo sc-logo-img">
+                <img src="super.jpg" alt="Supermercado"
+                  style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+              </div>
+              <div class="sc-info">
+                <div class="sc-name">Supermercado</div>
+                <div class="sc-desc">Walmart, Chedraui, La Comer</div>
+              </div>
+              <div class="sc-available">Disponible</div>
+            </div>
+            <div class="sc-footer">
+              <div class="sc-eta">Entrega en <strong>~45 min</strong></div>
+              <button class="btn-green" onclick="event.stopPropagation();openModal('super')">Ordenar</button>
+            </div>
+          </div>
+
+          <!-- Farmacia -->
+          <div class="service-card sc-farma" data-category="delivery" onclick="openModal('farma')">
+            <div class="sc-header">
+              <div class="sc-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" width="22" height="22">
+                  <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7z" />
+                  <line x1="8.5" y1="8.5" x2="15.5" y2="15.5" />
+                </svg>
+              </div>
+              <div class="sc-info">
+                <div class="sc-name">Farmacia</div>
+                <div class="sc-desc">Farmacias del Ahorro, Guadalajara</div>
+              </div>
+              <div class="sc-available">Disponible</div>
+            </div>
+            <div class="sc-footer">
+              <div class="sc-eta">Entrega en <strong>~30 min</strong></div>
+              <button class="btn-blue" onclick="event.stopPropagation();openModal('farma')">Pedir</button>
+            </div>
+          </div>
+
+          <!-- Comida -->
+          <div class="service-card sc-super" data-category="delivery" onclick="openModal('comida')">
+            <div class="sc-header">
+              <div class="sc-logo sc-logo-img">
+                <img src="comida.jpg" alt="Comida a Domicilio"
+                  style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+              </div>
+              <div class="sc-info">
+                <div class="sc-name">Comida a Domicilio</div>
+                <div class="sc-desc">Menús saludables para adultos mayores</div>
+              </div>
+              <div class="sc-available">Disponible</div>
+            </div>
+            <div class="sc-footer">
+              <div class="sc-eta">Entrega en <strong>~40 min</strong></div>
+              <button class="btn-green" onclick="event.stopPropagation();openModal('comida')">Ordenar</button>
+            </div>
+          </div>
+
+          <!-- Cuidador Personal -->
+          <div class="service-card sc-cuidador" data-category="care" onclick="openModal('cuidador')">
+            <div class="sc-header">
+              <div class="sc-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" width="22" height="22">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="8.5" cy="7" r="4" />
+                  <polyline points="17 11 19 13 23 9" />
+                </svg>
+              </div>
+              <div class="sc-info">
+                <div class="sc-name">Cuidador Personal</div>
+                <div class="sc-desc">Ana García · Enfermera Certificada</div>
+              </div>
+              <div class="sc-available">Plan Premium</div>
+            </div>
+            <div class="cuidador-profile">
+              <div class="cuidador-avatar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" width="22" height="22">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="8.5" cy="7" r="4" />
+                  <polyline points="17 11 19 13 23 9" />
+                </svg>
+              </div>
+              <div class="cuidador-info">
+                <div class="cn">Ana García</div>
+                <div class="cs">Enfermera Certificada · 8 años de exp.</div>
+                <div class="cuidador-stars">★★★★★ <span style="color:var(--text-3)">4.9</span></div>
+              </div>
+            </div>
+            <div class="next-visit">
+              <div class="nv-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" width="14" height="14">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+              </div>
+              <div class="nv-info">
+                <div class="nv-label">Próxima Visita</div>
+                <div class="nv-time">Viernes 5 Sep · 10:00 AM</div>
+              </div>
+            </div>
+            <div class="sc-footer">
+              <div class="sc-eta">2 visitas <strong>esta semana</strong></div>
+              <button class="btn-primary" onclick="event.stopPropagation();openModal('cuidador')">Contactar</button>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ════════════════════════════════
+           PANTALLA 4: VIDEOLLAMADA
+      ════════════════════════════════ -->
+        <section id="screen-video" class="screen">
+
+          <div class="app-header">
+            <div class="header-left">
+              <div class="greeting">Videollamada</div>
+              <div class="name">Bocina Celia</div>
+            </div>
+          </div>
+
+          <div class="video-screen-content">
+
+            <div class="celia-device">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" width="64" height="64">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+              </svg>
+            </div>
+
+            <div class="celia-device-name">Celia</div>
+            <div class="celia-device-status">
+              <div class="celia-online"></div>
+              Activa en casa de Rosa
+            </div>
+
+            <!-- Foto de Rosa en videollamada -->
+            <div class="rosa-video-preview">
+              <img src="rosa.jpg" alt="Rosa García" style="width:100%;height:100%;object-fit:cover;">
+              <div class="rosa-video-label">Rosa García</div>
+              <div class="rosa-video-status">
+                <div class="celia-online"></div>
+                En casa · CDMX
+              </div>
+            </div>
+
+            <div class="plan-notice">
+              <div class="pn-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" width="16" height="16">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+              </div>
+              <div class="pn-text">
+                <strong>Disponible en Plan Premium</strong>
+                Con el Plan Premium obtienes la bocina con pantalla y videollamadas con cámara en tiempo real.
+              </div>
+            </div>
+
+            <div class="call-btn-wrap">
+              <button class="call-btn" id="call-btn" onclick="toggleCall()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" width="28" height="28">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.1 6.1l1.06-.87a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </button>
+            </div>
+            <div class="call-label" id="call-label">Toca para llamar a Celia</div>
+
+            <div class="recent-calls">
+              <div class="rc-title">Llamadas Recientes</div>
+              <div class="rc-item">
+                <div class="rc-icon rc-green">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="17" height="17">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.1 6.1l1.06-.87a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
+                <div class="rc-info">
+                  <div class="rc-name">Llamada con Rosa</div>
+                  <div class="rc-dur">18 min</div>
+                </div>
+                <div class="rc-time">Ayer</div>
+              </div>
+              <div class="rc-item">
+                <div class="rc-icon rc-accent">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="17" height="17">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                  </svg>
+                </div>
+                <div class="rc-info">
+                  <div class="rc-name">Rosa usó Celia · Música</div>
+                  <div class="rc-dur">42 min</div>
+                </div>
+                <div class="rc-time">Mar</div>
+              </div>
+              <div class="rc-item">
+                <div class="rc-icon rc-blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="17" height="17">
+                    <polygon points="23 7 16 12 23 17 23 7" />
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                  </svg>
+                </div>
+                <div class="rc-info">
+                  <div class="rc-name">Videollamada familiar</div>
+                  <div class="rc-dur">3 participantes · 35 min</div>
+                </div>
+                <div class="rc-time">Lun</div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ════════════════════════════════
+           PANTALLA 5: PLANES
+      ════════════════════════════════ -->
+        <section id="screen-plans" class="screen">
+
+          <div class="plans-header">
+            <h2>Planes de Suscripción</h2>
+            <p class="plans-sub">Elige el plan que mejor se adapte a tu familia</p>
+          </div>
+
+          <!-- Básico -->
+          <div class="plan-card">
+            <div class="plan-icon-wrap plan-icon-default">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" width="22" height="22">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+              </svg>
+            </div>
+            <div class="plan-name">Básico</div>
+            <div class="plan-desc">Monitoreo y movilidad esencial</div>
+            <div class="plan-price"><span class="currency">$</span><span class="amount">399</span><span
+                class="period">/mes</span></div>
+            <div class="hardware-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" width="13" height="13">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+              </svg>
+              <div class="hb-text"><strong>Bocina Celia sin pantalla</strong>Incluida con la suscripción</div>
+            </div>
+            <div class="plan-divider"></div>
+            <div class="plan-features">
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Bocina Celia con asistente
+                  de voz</span></div>
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Monitoreo de signos vitales
+                  en tiempo real</span></div>
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Alertas de emergencia al
+                  familiar</span></div>
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Integración con DiDi</span>
+              </div>
+              <div class="pf-item"><span class="pf-x">✕</span>Entregas de supermercado y farmacia</div>
+              <div class="pf-item"><span class="pf-x">✕</span>Videollamadas con pantalla</div>
+              <div class="pf-item"><span class="pf-x">✕</span>Cuidador personal</div>
+            </div>
+            <button class="btn-plan btn-plan-basic"
+              onclick="showToast('info','Selección de Plan','Contacta a ventas para activar este plan')">Seleccionar
+              Básico</button>
+          </div>
+
+          <!-- Estándar -->
+          <div class="plan-card plan-popular">
+            <div class="plan-badge badge-popular">MÁS POPULAR</div>
+            <div class="plan-icon-wrap plan-icon-accent">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" width="22" height="22">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+              </svg>
+            </div>
+            <div class="plan-name">Estándar</div>
+            <div class="plan-desc">Todo lo básico más servicios a domicilio</div>
+            <div class="plan-price"><span class="currency">$</span><span class="amount">699</span><span
+                class="period">/mes</span></div>
+            <div class="hardware-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-3)" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" width="13" height="13">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+              </svg>
+              <div class="hb-text"><strong>Bocina Celia sin pantalla</strong>Incluida con la suscripción</div>
+            </div>
+            <div class="plan-divider"></div>
+            <div class="plan-features">
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Todo lo del Plan
+                  Básico</span></div>
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Entrega de supermercado a
+                  domicilio</span></div>
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Entrega de farmacia y
+                  medicamentos</span></div>
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Comida saludable a
+                  domicilio</span></div>
+              <div class="pf-item"><span class="pf-x">✕</span>Videollamadas con pantalla</div>
+              <div class="pf-item"><span class="pf-x">✕</span>Cuidador personal</div>
+            </div>
+            <button class="btn-plan btn-plan-popular"
+              onclick="showToast('check','Plan Actual','Este es tu plan activo')">Plan Actual ✓</button>
+          </div>
+
+          <!-- Premium -->
+          <div class="plan-card plan-premium-card">
+            <div class="plan-badge badge-premium">PREMIUM</div>
+            <div class="plan-icon-wrap plan-icon-amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" width="22" height="22">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <div class="plan-name">Premium</div>
+            <div class="plan-desc">El cuidado más completo disponible</div>
+            <div class="plan-price"><span class="currency">$</span><span class="amount">1,199</span><span
+                class="period">/mes</span></div>
+            <div class="hardware-badge hardware-badge-amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" width="13" height="13">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              <div class="hb-text"><strong>Bocina Celia con pantalla HD</strong>Videollamadas ilimitadas incluidas</div>
+            </div>
+            <div class="plan-divider"></div>
+            <div class="plan-features">
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Todo lo del Plan
+                  Estándar</span></div>
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Bocina Celia con pantalla
+                  HD</span></div>
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Videollamadas ilimitadas con
+                  cámara</span></div>
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Cuidador personal (2
+                  visitas/semana)</span></div>
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Informe semanal de salud
+                  detallado</span></div>
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Detección de caídas con
+                  IA</span></div>
+              <div class="pf-item"><span class="pf-check">✓</span><span class="pf-included">Soporte prioritario
+                  24/7</span></div>
+            </div>
+            <button class="btn-plan btn-plan-premium" onclick="startFakePremiumCall()">Mejorar a Premium</button>
+          </div>
+
+          <div style="padding:0 20px 20px;text-align:center;">
+            <p style="font-size:11px;color:var(--text-3);line-height:1.6;">Sin contratos de permanencia · Cancela cuando
+              quieras</p>
+          </div>
+
+        </section>
+
+        <!-- Modal -->
+        <div class="overlay" id="overlay" onclick="closeModal()">
+          <div class="modal" id="modal" onclick="event.stopPropagation()">
+            <div class="modal-handle"></div>
+            <div id="modal-content"></div>
+          </div>
+        </div>
+
+        <!-- Toast -->
+        <div class="toast" id="toast">
+          <div class="toast-icon" id="toast-icon"></div>
+          <div class="toast-text">
+            <div class="tt" id="toast-title"></div>
+            <div class="ts" id="toast-sub"></div>
+          </div>
+          <button class="toast-close" onclick="hideToast()">×</button>
+        </div>
+
+        <!-- ════════════════════════════════════════════════════
+           PANTALLAS DE SERVICIO (slide-in desde la derecha)
+      ════════════════════════════════════════════════════ -->
+        <div class="svc-overlay" id="svc-overlay">
+
+          <!-- ── DIDI ── -->
+          <div class="svc-screen" id="svc-didi">
+            <div class="svc-header">
+              <button class="svc-back-btn" onclick="closeSvcScreen()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" width="16" height="16">
+                  <path d="M19 12H5m7-7-7 7 7 7" />
+                </svg>
+              </button>
+              <div>
+                <div class="svc-title">Pedir DiDi</div>
+                <div class="svc-subtitle">Para Rosa García</div>
+              </div>
+              <img src="didi.jpg" style="width:32px;height:32px;border-radius:8px;margin-left:auto;object-fit:cover;">
+            </div>
+
+            <!-- Mapa simulado -->
+            <div class="didi-map">
+              <div class="didi-map-grid"></div>
+              <div class="didi-roads"></div>
+              <div class="didi-rosa-pin">
+                <div class="didi-pulse-ring"></div>
+                <img src="rosa.jpg" alt="Rosa"
+                  style="width:34px;height:34px;border-radius:50%;border:2px solid white;object-fit:cover;position:relative;z-index:2;">
+              </div>
+              <div class="didi-car-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" width="22" height="22">
+                  <rect x="1" y="10" width="22" height="8" rx="2" />
+                  <path d="M5 10l2-5h10l2 5" />
+                  <circle cx="7.5" cy="18" r="1.5" />
+                  <circle cx="16.5" cy="18" r="1.5" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Ruta -->
+            <div class="didi-form">
+              <div class="didi-route-row">
+                <div class="route-dot origin-dot"></div>
+                <div class="didi-field">
+                  <div class="didi-field-label">Origen</div>
+                  <div class="didi-field-val">Insurgentes 342, CDMX</div>
+                </div>
+              </div>
+              <div class="didi-route-line"></div>
+              <div class="didi-route-row" id="didi-dest-row">
+                <div class="route-dot dest-dot"></div>
+                <div class="didi-field">
+                  <div class="didi-field-label">Destino</div>
+                  <div class="didi-field-val muted" id="didi-dest-text">Elige un destino...</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Destinos frecuentes -->
+            <div class="svc-section-label">Destinos frecuentes de Rosa</div>
+            <div class="qdest-list">
+              <button class="qdest-btn" onclick="selectDest('Hospital General · Col. Doctores')">
+                <div class="qdest-icon qdest-hospital">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="16" height="16">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <line x1="12" y1="22" x2="12" y2="12" />
+                    <path d="M9 12h6" />
+                  </svg>
+                </div>
+                <div class="qdest-info">
+                  <div class="qdest-name">Hospital General</div>
+                  <div class="qdest-dist">~15 min · Col. Doctores</div>
+                </div>
+                <div class="qdest-arrow">›</div>
+              </button>
+              <button class="qdest-btn" onclick="selectDest('Farmacia del Ahorro · Insurgentes')">
+                <div class="qdest-icon qdest-farma">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="16" height="16">
+                    <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7z" />
+                    <line x1="8.5" y1="8.5" x2="15.5" y2="15.5" />
+                  </svg>
+                </div>
+                <div class="qdest-info">
+                  <div class="qdest-name">Farmacia del Ahorro</div>
+                  <div class="qdest-dist">~8 min · Insurgentes</div>
+                </div>
+                <div class="qdest-arrow">›</div>
+              </button>
+              <button class="qdest-btn" onclick="selectDest('Parque Alameda · Centro')">
+                <div class="qdest-icon qdest-park">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="16" height="16">
+                    <path d="M17 8a5 5 0 0 0-10 0c0 5-3 7-3 7h16s-3-2-3-7" />
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                  </svg>
+                </div>
+                <div class="qdest-info">
+                  <div class="qdest-name">Parque Alameda</div>
+                  <div class="qdest-dist">~12 min · Centro</div>
+                </div>
+                <div class="qdest-arrow">›</div>
+              </button>
+            </div>
+
+            <!-- Tipo de auto -->
+            <div class="svc-section-label" style="margin-top:4px;">Tipo de viaje</div>
+            <div class="car-types">
+              <div class="car-type selected" id="car-std" onclick="selectCar('std')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" width="26" height="26">
+                  <rect x="1" y="10" width="22" height="8" rx="2" />
+                  <path d="M5 10l2-5h10l2 5" />
+                  <circle cx="7.5" cy="18" r="1.5" />
+                  <circle cx="16.5" cy="18" r="1.5" />
+                </svg>
+                <div class="car-type-info">
+                  <div class="car-type-name">DiDi Standard</div>
+                  <div class="car-type-sub">4 personas · ~8 min</div>
+                </div>
+                <div class="car-type-price">$45–60</div>
+              </div>
+              <div class="car-type" id="car-comfort" onclick="selectCar('comfort')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" width="26" height="26">
+                  <path d="M7 17h10M5 17H3a2 2 0 0 1-2-2v-5c0-1.1.9-2 2-2h14l4 4v3a2 2 0 0 1-2 2h-2" />
+                  <circle cx="7" cy="17" r="2" />
+                  <circle cx="17" cy="17" r="2" />
+                  <path d="M5 8V6" />
+                </svg>
+                <div class="car-type-info">
+                  <div class="car-type-name">DiDi Comfort</div>
+                  <div class="car-type-sub">Mayor confort · ~12 min</div>
+                </div>
+                <div class="car-type-price">$65–80</div>
+              </div>
+            </div>
+
+            <div style="padding:16px;">
+              <button class="btn-full btn-orange-full" id="didi-request-btn" onclick="confirmDidi()">Solicitar
+                DiDi</button>
+            </div>
+          </div>
+
+          <!-- ── SUPERMERCADO ── -->
+          <div class="svc-screen" id="svc-super">
+            <div class="svc-header">
+              <button class="svc-back-btn" onclick="closeSvcScreen()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" width="16" height="16">
+                  <path d="M19 12H5m7-7-7 7 7 7" />
+                </svg>
+              </button>
+              <div>
+                <div class="svc-title">Supermercado</div>
+                <div class="svc-subtitle">Walmart · Entrega ~45 min</div>
+              </div>
+              <img src="super.jpg" style="width:32px;height:32px;border-radius:8px;margin-left:auto;object-fit:cover;">
+            </div>
+
+            <div class="svc-search-bar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" width="15" height="15">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <span style="color:var(--text-3);font-size:13px;">Buscar productos...</span>
+            </div>
+
+            <div class="cat-tabs">
+              <button class="cat-tab active" onclick="activateCatTab(this)">Todos</button>
+              <button class="cat-tab" onclick="activateCatTab(this)">Frutas y Verduras</button>
+              <button class="cat-tab" onclick="activateCatTab(this)">Lácteos</button>
+              <button class="cat-tab" onclick="activateCatTab(this)">Carnes</button>
+              <button class="cat-tab" onclick="activateCatTab(this)">Bebidas</button>
+              <button class="cat-tab" onclick="activateCatTab(this)">Limpieza</button>
+            </div>
+
+            <div class="product-grid">
+              <div class="product-card">
+                <div class="product-img prod-green">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                    <path d="M12 2a8 8 0 0 0-8 8c0 5 8 12 8 12s8-7 8-12a8 8 0 0 0-8-8z" />
+                  </svg>
+                </div>
+                <div class="product-name">Manzanas</div>
+                <div class="product-unit">1 kg</div>
+                <div class="product-footer">
+                  <div class="product-price">$35</div>
+                  <div class="product-qty-ctrl" data-name="Manzanas" data-price="35">
+                    <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                    <span class="qty-num">0</span>
+                    <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-img prod-blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                    <path d="M8 2h8l2 10H6L8 2z" />
+                    <path d="M6 12a6 6 0 0 0 12 0" />
+                  </svg>
+                </div>
+                <div class="product-name">Leche Lala</div>
+                <div class="product-unit">1 litro</div>
+                <div class="product-footer">
+                  <div class="product-price">$22</div>
+                  <div class="product-qty-ctrl" data-name="Leche Lala" data-price="22">
+                    <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                    <span class="qty-num">0</span>
+                    <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-img prod-amber">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+                    <path d="M7 2v20" />
+                    <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3z" />
+                  </svg>
+                </div>
+                <div class="product-name">Pan integral</div>
+                <div class="product-unit">680 g</div>
+                <div class="product-footer">
+                  <div class="product-price">$28</div>
+                  <div class="product-qty-ctrl" data-name="Pan integral" data-price="28">
+                    <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                    <span class="qty-num">0</span>
+                    <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-img prod-red">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                    <path
+                      d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                </div>
+                <div class="product-name">Pollo pechuga</div>
+                <div class="product-unit">1 kg</div>
+                <div class="product-footer">
+                  <div class="product-price">$85</div>
+                  <div class="product-qty-ctrl" data-name="Pollo pechuga" data-price="85">
+                    <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                    <span class="qty-num">0</span>
+                    <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-img prod-purple">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                  </svg>
+                </div>
+                <div class="product-name">Yogurt Yoplait</div>
+                <div class="product-unit">900 g</div>
+                <div class="product-footer">
+                  <div class="product-price">$32</div>
+                  <div class="product-qty-ctrl" data-name="Yogurt Yoplait" data-price="32">
+                    <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                    <span class="qty-num">0</span>
+                    <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-img prod-yellow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                    <circle cx="9" cy="21" r="1" />
+                    <circle cx="20" cy="21" r="1" />
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                  </svg>
+                </div>
+                <div class="product-name">Huevos</div>
+                <div class="product-unit">12 piezas</div>
+                <div class="product-footer">
+                  <div class="product-price">$42</div>
+                  <div class="product-qty-ctrl" data-name="Huevos" data-price="42">
+                    <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                    <span class="qty-num">0</span>
+                    <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-img prod-blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  </svg>
+                </div>
+                <div class="product-name">Agua purificada</div>
+                <div class="product-unit">5 litros</div>
+                <div class="product-footer">
+                  <div class="product-price">$25</div>
+                  <div class="product-qty-ctrl" data-name="Agua purificada" data-price="25">
+                    <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                    <span class="qty-num">0</span>
+                    <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                  </div>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="product-img prod-green">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 8v4l3 3" />
+                  </svg>
+                </div>
+                <div class="product-name">Naranja</div>
+                <div class="product-unit">1 kg</div>
+                <div class="product-footer">
+                  <div class="product-price">$25</div>
+                  <div class="product-qty-ctrl" data-name="Naranja" data-price="25">
+                    <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                    <span class="qty-num">0</span>
+                    <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── FARMACIA ── -->
+          <div class="svc-screen" id="svc-farma">
+            <div class="svc-header">
+              <button class="svc-back-btn" onclick="closeSvcScreen()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" width="16" height="16">
+                  <path d="M19 12H5m7-7-7 7 7 7" />
+                </svg>
+              </button>
+              <div>
+                <div class="svc-title">Farmacia</div>
+                <div class="svc-subtitle">Del Ahorro · Entrega ~30 min</div>
+              </div>
+            </div>
+
+            <div class="svc-search-bar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" width="15" height="15">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <span style="color:var(--text-3);font-size:13px;">Buscar medicamento...</span>
+            </div>
+
+            <!-- Medicamentos de Rosa -->
+            <div class="svc-section-label">Medicamentos de Rosa</div>
+            <div class="med-list">
+              <div class="med-item">
+                <div class="med-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="16" height="16">
+                    <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7z" />
+                    <line x1="8.5" y1="8.5" x2="15.5" y2="15.5" />
+                  </svg>
+                </div>
+                <div class="med-info">
+                  <div class="med-name">Metformina 500mg</div>
+                  <div class="med-sub">Diabetes · Caja 30 tabs</div>
+                </div>
+                <div class="med-price">$45</div>
+                <div class="product-qty-ctrl" data-name="Metformina 500mg" data-price="45">
+                  <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-num">0</span>
+                  <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                </div>
+              </div>
+              <div class="med-item">
+                <div class="med-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="16" height="16">
+                    <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7z" />
+                    <line x1="8.5" y1="8.5" x2="15.5" y2="15.5" />
+                  </svg>
+                </div>
+                <div class="med-info">
+                  <div class="med-name">Losartán 50mg</div>
+                  <div class="med-sub">Presión arterial · 30 tabs</div>
+                </div>
+                <div class="med-price">$38</div>
+                <div class="product-qty-ctrl" data-name="Losartán 50mg" data-price="38">
+                  <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-num">0</span>
+                  <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                </div>
+              </div>
+              <div class="med-item">
+                <div class="med-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="16" height="16">
+                    <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7z" />
+                    <line x1="8.5" y1="8.5" x2="15.5" y2="15.5" />
+                  </svg>
+                </div>
+                <div class="med-info">
+                  <div class="med-name">Vitamina D3 2000 UI</div>
+                  <div class="med-sub">Suplemento · 60 cápsulas</div>
+                </div>
+                <div class="med-price">$55</div>
+                <div class="product-qty-ctrl" data-name="Vitamina D3" data-price="55">
+                  <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-num">0</span>
+                  <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                </div>
+              </div>
+              <div class="med-item">
+                <div class="med-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="16" height="16">
+                    <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7z" />
+                    <line x1="8.5" y1="8.5" x2="15.5" y2="15.5" />
+                  </svg>
+                </div>
+                <div class="med-info">
+                  <div class="med-name">Paracetamol 500mg</div>
+                  <div class="med-sub">Analgésico · 20 tabs</div>
+                </div>
+                <div class="med-price">$28</div>
+                <div class="product-qty-ctrl" data-name="Paracetamol" data-price="28">
+                  <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-num">0</span>
+                  <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                </div>
+              </div>
+              <div class="med-item">
+                <div class="med-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.75" stroke-linecap="round"
+                    stroke-linejoin="round" width="16" height="16">
+                    <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7z" />
+                    <line x1="8.5" y1="8.5" x2="15.5" y2="15.5" />
+                  </svg>
+                </div>
+                <div class="med-info">
+                  <div class="med-name">Omega 3 · 1000mg</div>
+                  <div class="med-sub">Cardiovascular · 30 cáps</div>
+                </div>
+                <div class="med-price">$62</div>
+                <div class="product-qty-ctrl" data-name="Omega 3" data-price="62">
+                  <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-num">0</span>
+                  <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── COMIDA ── -->
+          <div class="svc-screen" id="svc-comida">
+            <div class="svc-header">
+              <button class="svc-back-btn" onclick="closeSvcScreen()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" width="16" height="16">
+                  <path d="M19 12H5m7-7-7 7 7 7" />
+                </svg>
+              </button>
+              <div>
+                <div class="svc-title">Comida a Domicilio</div>
+                <div class="svc-subtitle">Menús saludables · ~40 min</div>
+              </div>
+            </div>
+
+            <!-- Banner del restaurante -->
+            <div class="rest-banner">
+              <div class="rest-banner-bg"></div>
+              <div class="rest-banner-info">
+                <div class="rest-name">La Cocina de Doña Carmen</div>
+                <div class="rest-meta">
+                  <span class="rest-star">★ 4.8</span>
+                  <span class="rest-dot">·</span>
+                  <span>Comida casera · $0 envío</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cat-tabs" style="margin-top:8px;">
+              <button class="cat-tab active" onclick="activateCatTab(this)">Todos</button>
+              <button class="cat-tab" onclick="activateCatTab(this)">Sopas</button>
+              <button class="cat-tab" onclick="activateCatTab(this)">Platos fuertes</button>
+              <button class="cat-tab" onclick="activateCatTab(this)">Ensaladas</button>
+              <button class="cat-tab" onclick="activateCatTab(this)">Postres</button>
+            </div>
+
+            <div class="dish-list">
+              <div class="dish-item">
+                <div class="dish-img dish-soup">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                    <path d="M3 11l19-9-9 19-2-8-8-2z" />
+                  </svg>
+                </div>
+                <div class="dish-info">
+                  <div class="dish-name">Caldo de pollo</div>
+                  <div class="dish-desc">Con verduras de temporada y arroz</div>
+                  <div class="dish-price">$65</div>
+                </div>
+                <div class="product-qty-ctrl" data-name="Caldo de pollo" data-price="65">
+                  <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-num">0</span>
+                  <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                </div>
+              </div>
+              <div class="dish-item">
+                <div class="dish-img dish-salad">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                  </svg>
+                </div>
+                <div class="dish-info">
+                  <div class="dish-name">Sopa de lentejas</div>
+                  <div class="dish-desc">Con jitomate, cebolla y cilantro</div>
+                  <div class="dish-price">$55</div>
+                </div>
+                <div class="product-qty-ctrl" data-name="Sopa de lentejas" data-price="55">
+                  <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-num">0</span>
+                  <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                </div>
+              </div>
+              <div class="dish-item">
+                <div class="dish-img dish-main">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+                    <path d="M7 2v20" />
+                    <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3z" />
+                  </svg>
+                </div>
+                <div class="dish-info">
+                  <div class="dish-name">Milanesa de res</div>
+                  <div class="dish-desc">Con puré de papa y ensalada</div>
+                  <div class="dish-price">$85</div>
+                </div>
+                <div class="product-qty-ctrl" data-name="Milanesa de res" data-price="85">
+                  <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-num">0</span>
+                  <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                </div>
+              </div>
+              <div class="dish-item">
+                <div class="dish-img dish-salad">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                    <path d="M3 7c3-2 6-2 9 0s6 2 9 0" />
+                    <path d="M21 12H3" />
+                    <path d="M3 17c3-2 6-2 9 0s6 2 9 0" />
+                  </svg>
+                </div>
+                <div class="dish-info">
+                  <div class="dish-name">Ensalada César</div>
+                  <div class="dish-desc">Con pollo a la plancha y crutones</div>
+                  <div class="dish-price">$72</div>
+                </div>
+                <div class="product-qty-ctrl" data-name="Ensalada César" data-price="72">
+                  <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-num">0</span>
+                  <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                </div>
+              </div>
+              <div class="dish-item">
+                <div class="dish-img dish-dessert">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  </svg>
+                </div>
+                <div class="dish-info">
+                  <div class="dish-name">Arroz con leche</div>
+                  <div class="dish-desc">Con canela y pasas</div>
+                  <div class="dish-price">$35</div>
+                </div>
+                <div class="product-qty-ctrl" data-name="Arroz con leche" data-price="35">
+                  <button class="qty-btn minus" onclick="changeQty(this,-1)">−</button>
+                  <span class="qty-num">0</span>
+                  <button class="qty-btn plus" onclick="changeQty(this,1)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── CUIDADOR ── -->
+          <div class="svc-screen" id="svc-cuidador">
+            <div class="svc-header">
+              <button class="svc-back-btn" onclick="closeSvcScreen()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" width="16" height="16">
+                  <path d="M19 12H5m7-7-7 7 7 7" />
+                </svg>
+              </button>
+              <div>
+                <div class="svc-title">Cuidador Personal</div>
+                <div class="svc-subtitle">Plan Premium</div>
+              </div>
+            </div>
+            <div style="padding:16px;">
+              <div class="cuidador-card-full">
+                <div class="ccf-top">
+                  <div class="cuidador-avatar"
+                    style="width:56px;height:56px;border-radius:14px;background:var(--bg-raised);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="26"
+                      height="26">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="8.5" cy="7" r="4" />
+                      <polyline points="17 11 19 13 23 9" />
+                    </svg>
+                  </div>
+                  <div style="flex:1;">
+                    <div style="font-size:16px;font-weight:700;color:var(--text-1);">Ana García</div>
+                    <div style="font-size:11px;color:var(--text-3);margin-top:2px;">Enfermera Certificada · 8 años exp.
+                    </div>
+                    <div style="color:var(--amber);font-size:12px;margin-top:3px;">★★★★★ <span
+                        style="color:var(--text-3)">4.9 (128 reseñas)</span></div>
+                  </div>
+                </div>
+                <div class="ccf-tags">
+                  <span class="ccf-tag">Adultos mayores</span>
+                  <span class="ccf-tag">Medicamentos</span>
+                  <span class="ccf-tag">Fisioterapia</span>
+                </div>
+              </div>
+
+              <div class="svc-section-label" style="margin-top:16px;">Próximas visitas</div>
+              <div class="visit-slots">
+                <div class="visit-slot selected" onclick="selectSlot(this)">
+                  <div class="vs-day">Vie</div>
+                  <div class="vs-date">5</div>
+                  <div class="vs-time">10:00</div>
+                </div>
+                <div class="visit-slot" onclick="selectSlot(this)">
+                  <div class="vs-day">Lun</div>
+                  <div class="vs-date">8</div>
+                  <div class="vs-time">10:00</div>
+                </div>
+                <div class="visit-slot" onclick="selectSlot(this)">
+                  <div class="vs-day">Vie</div>
+                  <div class="vs-date">12</div>
+                  <div class="vs-time">11:00</div>
+                </div>
+                <div class="visit-slot" onclick="selectSlot(this)">
+                  <div class="vs-day">Lun</div>
+                  <div class="vs-date">15</div>
+                  <div class="vs-time">10:00</div>
+                </div>
+              </div>
+
+              <div class="svc-section-label" style="margin-top:16px;">Mensaje para Ana</div>
+              <div class="msg-box">Por favor revisar la presión arterial y apoyar con medicamentos...</div>
+
+              <button class="btn-full btn-accent-full" style="margin-top:16px;" onclick="confirmCuidador()">Confirmar
+                visita</button>
+              <button class="btn-full btn-outline-full" style="margin-top:8px;"
+                onclick="closeSvcScreen()">Cancelar</button>
+            </div>
+          </div>
+
+        </div><!-- /svc-overlay -->
+
+        <!-- Cart Bar flotante -->
+        <div class="cart-bar" id="cart-bar">
+          <div class="cart-count-badge" id="cart-count">0</div>
+          <div class="cart-bar-label">Ver pedido</div>
+          <div class="cart-bar-total" id="cart-total">$0</div>
+          <button class="cart-bar-btn" onclick="confirmOrder()">Confirmar</button>
+        </div>
+
+      </div><!-- /app-body -->
+
+
+      <!-- ── NAVEGACIÓN INFERIOR ── -->
+      <nav class="bottom-nav">
+        <button class="nav-btn active" data-screen="screen-home" onclick="switchScreen('screen-home')">
+          <svg viewBox="0 0 24 24" stroke-width="1.8">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          <span>Inicio</span>
+        </button>
+        <button class="nav-btn" data-screen="screen-vitals" onclick="switchScreen('screen-vitals')">
+          <svg viewBox="0 0 24 24" stroke-width="1.8">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+          <span>Signos</span>
+        </button>
+        <button class="nav-btn" data-screen="screen-services" onclick="switchScreen('screen-services')">
+          <svg viewBox="0 0 24 24" stroke-width="1.8">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+          </svg>
+          <span>Servicios</span>
+        </button>
+        <button class="nav-btn" data-screen="screen-video" onclick="switchScreen('screen-video')">
+          <svg viewBox="0 0 24 24" stroke-width="1.8">
+            <polygon points="23 7 16 12 23 17 23 7" />
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+          </svg>
+          <span>Llamada</span>
+        </button>
+        <button class="nav-btn" data-screen="screen-plans" onclick="switchScreen('screen-plans')">
+          <svg viewBox="0 0 24 24" stroke-width="1.8">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
+          <span>Planes</span>
+        </button>
+      </nav>
+
+      <!-- ── FAKE PREMIUM CALL OVERLAY ── -->
+      <div class="premium-call-overlay" id="premium-call-overlay">
+
+        <!-- Pantalla de Llamada Entrante -->
+        <div class="pcall-incoming" id="pcall-incoming">
+          <div class="pcall-header">
+            <div class="pcall-title">Celia Premium</div>
+            <div class="pcall-subtitle">Llamada de bienvenida entrante...</div>
+          </div>
+          <div class="pcall-avatar">
+            <div class="pcall-pulse"></div>
+            <div class="pcall-pulse pcall-pulse-2"></div>
+            <img src="rosa.jpg" alt="Concierge"
+              style="width:100%;height:100%;border-radius:50%;object-fit:cover;position:relative;z-index:2;border:4px solid var(--bg-surface);">
+          </div>
+          <div class="pcall-name">Asesor Celia</div>
+          <div class="pcall-status">Videollamada encriptada</div>
+
+          <div class="pcall-actions">
+            <button class="pcall-btn pcall-reject" onclick="endFakePremiumCall()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="28" height="28">
+                <path
+                  d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91" />
+              </svg>
+            </button>
+            <button class="pcall-btn pcall-accept" onclick="acceptFakePremiumCall()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="28" height="28">
+                <path d="M23 7l-7 5 7 5V7z" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Pantalla de Llamada Activa (Cámara Web) -->
+        <div class="pcall-active" id="pcall-active" style="display:none;">
+          <video id="pcall-video" autoplay playsinline muted></video>
+          <div class="pcall-top-bar">
+            <div style="font-weight:600;font-size:14px;text-shadow:0 1px 4px rgba(0,0,0,0.5);">Asesor Celia</div>
+            <div style="font-size:12px;opacity:0.9;text-shadow:0 1px 4px rgba(0,0,0,0.5);" id="pcall-timer">00:00</div>
+          </div>
+          <div class="pcall-active-actions">
+            <button class="pcall-btn pcall-reject" onclick="endFakePremiumCall()" style="width:56px;height:56px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="24" height="24">
+                <path
+                  d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /phone -->
+  </div><!-- /app-container -->
+
+  <script src="script.js"></script>
+</body>
+
+</html>
